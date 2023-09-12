@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Palmare</string>
+
+    <!-- universal btn -->
+    <string name="btn_indietro">Indietro</string>
+
+    <!-- First view -->
+    <string name="first_view_title">SCELTA ATTIVITA\'</string>
+    <string name="prelievo_produzione">Prelievo Prod.</string>
+    <string name="rientro_produzione">Rientro da Prod.</string>
+    <string name="prelievo_riparazione">Prelievo Riparaz.</string>
+    <string name="prelievo_conto_lavoro">Prelievo conto lavoro</string>
+
+    <!-- Second view -->
+    <string name="second_view_title">%s - TESTATA</string>
+    <string name="date">Data: %s</string>
+    <string name="commessa">Commessa:</string>
+
+    <!-- Third view -->
+    <string name="third_view_title">%s - ARTICOLO</string>
+    <string name="scan_session">Letture nella sessione: %d/%d</string>
+    <string name="article">Materia prima:</string>
+    <string name="quantity">Q.ta:</string>
+    <string name="quantity_placeholder">0</string>
+    <string name="btn_finish">Fine</string>
+<!--    <string name="btn_riepilogo">Riepilogo</string>-->
+
+    <!-- Dialog -->
+    <string name="dialog_title">Concludi operazione?</string>
+    <string name="btn_confirm">Conferma</string>
+    <string name="btn_decline">Indietro</string>
+
+    <!-- Fourth view -->
+    <string name="riepilogo_title">Riepilogo</string>
+    <string name="riepilogo_comm">Commessa</string>
+    <string name="riepilogo_prodotto">Prodotto</string>
+    <string name="riepilogo_quantita">Q.ta</string>
+
+
+
+</resources>

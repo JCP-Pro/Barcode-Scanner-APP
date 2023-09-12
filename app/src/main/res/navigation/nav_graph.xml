@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/taskOperationFragment">
+
+    <fragment
+        android:id="@+id/taskOperationFragment"
+        android:name="com.example.palmare.ui.fragments.TaskOperationFragment"
+        android:label="@string/first_view_title"
+        tools:layout="@layout/fragment_task_operation" >
+        <action
+            android:id="@+id/action_taskOperationFragment_to_headFragment"
+            app:destination="@id/headFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/headFragment"
+        android:name="com.example.palmare.ui.fragments.HeadFragment"
+        tools:layout="@layout/fragment_head">
+        <argument
+            android:name="opType"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_headFragment_to_taskOperationFragment"
+            app:destination="@id/taskOperationFragment"
+            app:popUpTo="@id/taskOperationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_headFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.palmare.ui.fragments.ArticleFragment">
+        <argument
+            android:name="opType"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_articleFragment_to_headFragment"
+            app:destination="@id/headFragment" />
+        <argument
+            android:name="commessa"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_articleFragment_to_dialogConfirmation"
+            app:destination="@id/dialogConfirmation" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogConfirmation"
+        android:name="com.example.palmare.ui.fragments.DialogConfirmation"
+        android:label="DialogConfirmation" >
+        <action
+            android:id="@+id/action_dialogConfirmation_to_taskOperationFragment"
+            app:destination="@id/taskOperationFragment"
+            app:popUpTo="@id/taskOperationFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="opType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_dialogConfirmation_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </dialog>
+</navigation>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.fragments.ArticleFragment">
+
+        <TextView
+            android:id="@+id/session_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size" />
+
+        <TextView
+            android:id="@+id/articolo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:text="@string/article"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:textSize="@dimen/font_size" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/articolo_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/btn_margin"
+                android:background="@drawable/input_border"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textSize="@dimen/font_size"
+                tools:text="Something"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/quantity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:text="@string/quantity"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:textSize="@dimen/font_size" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/btn_margin"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/quantity_input"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/btn_margin"
+                android:background="@drawable/input_border"
+                android:inputType="numberDecimal"
+                android:padding="5sp"
+                android:textSize="@dimen/font_size"
+                android:maxLength="17"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/indietro"
+        android:layout_width="@dimen/btn_size"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/btn_margin"
+        android:text="@string/btn_indietro"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/finish_operation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/finish_operation"
+        android:layout_width="@dimen/btn_size"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/btn_margin"
+        android:text="@string/btn_finish"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/indietro" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

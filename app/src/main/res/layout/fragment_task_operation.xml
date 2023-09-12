@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.TaskOperationFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+<!--    <Button-->
+<!--        android:id="@+id/prelievo_prod"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/btn_margin"-->
+<!--        android:text="@string/prelievo_produzione"-->
+<!--        android:textSize="@dimen/font_size" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/rientro_prod"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/btn_margin"-->
+<!--        android:text="@string/rientro_produzione"-->
+<!--        android:textSize="@dimen/font_size" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/prelievo_riparazione"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/btn_margin"-->
+<!--        android:text="@string/prelievo_riparazione"-->
+<!--        android:textSize="@dimen/font_size" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/prelievo_conto_lavoro"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/btn_margin"-->
+<!--        android:text="@string/prelievo_conto_lavoro"-->
+<!--        android:textSize="@dimen/font_size" />-->
+
+</LinearLayout>
