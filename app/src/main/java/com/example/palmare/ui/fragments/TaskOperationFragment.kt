@@ -30,10 +30,6 @@ class TaskOperationFragment : Fragment() {
         return view
     }
 
-    /*private fun toastMsg() {
-        Toast.makeText(activity,"clicked", Toast.LENGTH_SHORT).show()
-    }*/
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerview = binding.recyclerview

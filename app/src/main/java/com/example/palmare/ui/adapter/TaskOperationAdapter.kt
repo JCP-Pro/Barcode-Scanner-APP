@@ -35,25 +35,20 @@ class TaskOperationAdapter(private val context: Context): RecyclerView.Adapter<T
         val item = options[position]
         holder.button.text = context.resources.getString(item.stringResourceId)
         holder.button.setOnClickListener {
-            Log.d("TaskOperationAdapter", "Clicked")
             when(item.type) {
                 1 -> {
-                    Log.d(TAG, "Type 1.")
                     val action = TaskOperationFragmentDirections.actionTaskOperationFragmentToHeadFragment(item.type)
                     holder.view.findNavController().navigate(action)
                 }
                 2 -> {
-                    Log.d(TAG, "Type 2.")
                     val action = TaskOperationFragmentDirections.actionTaskOperationFragmentToHeadFragment(item.type)
                     holder.view.findNavController().navigate(action)
                 }
                 3 -> {
-                    Log.d(TAG, "Type 3")
                     val action = TaskOperationFragmentDirections.actionTaskOperationFragmentToHeadFragment(item.type)
                     holder.view.findNavController().navigate(action)
                 }
                 4 -> {
-                    Log.d(TAG, "Type 4.")
                     val action = TaskOperationFragmentDirections.actionTaskOperationFragmentToHeadFragment(item.type)
                     holder.view.findNavController().navigate(action)
                 }

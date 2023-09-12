@@ -72,9 +72,6 @@ class HeadFragment : Fragment() {
             val dateData = LocalDate.now(ZoneId.of("Europe/Rome"))
             date.text = getString(R.string.date, dateData)
 
-            /*if(commessaInput.text!!.isNotBlank()) {
-                Log.d(TAG, "The input field is filled")
-            } else Log.d(TAG, "The input field is empty.")*/
             commessaInput.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                     if(commessaInput.text!!.isNotEmpty()) {

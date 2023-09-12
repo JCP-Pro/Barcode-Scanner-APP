@@ -93,9 +93,6 @@ class ArticleFragment : Fragment() {
             sessionScan.text =
                 context?.resources?.getString(R.string.scan_session, viewModel.scanQty, viewModel.scanQty)
 
-            //number format for decimal points -> max 3 decimals
-
-
             indietro.setOnClickListener {
                 findNavController().navigateUp()
             }
@@ -112,12 +109,6 @@ class ArticleFragment : Fragment() {
 
                 Log.d(TAG, "List BEFORE add: ${viewModel.items}")
 
-                //decimal format -> .000
-               /* val quantity = quantityInput.text.toString().toFloat()
-                val dec = DecimalFormat("#.000")
-                val formattedQty = dec.format(quantity)
-                val qty = formattedQty.toString()*/
-
                 if (quantityInput.text!!.length > 17) {
                     Toast.makeText(activity, "Error. Invalid length. Max 13 Int digits.", Toast.LENGTH_SHORT).show()
                 }
@@ -127,7 +118,6 @@ class ArticleFragment : Fragment() {
                         typeCommessa,
                         articoloInput.text.toString(),
                         quantityInput.text.toString()
-//                    qty
                     )
                 }
 

@@ -12,7 +12,6 @@ const val TAG = "ViewModel"
 class ArticleViewModel : ViewModel() {
     val items = mutableListOf<ItemModel>()
 
-    //    var opType: Int = 0
     var scanQty = 0
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
@@ -42,7 +41,6 @@ class ArticleViewModel : ViewModel() {
     fun sendAuth() {
         viewModelScope.launch {
             try {
-//                rawJSON(items)
                 loadProfile(items)
                 _status.value = "Success: ${loadProfile(items)}}"
                 Log.d("ViewModel", "Success status: ${status}")
