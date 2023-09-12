@@ -27,7 +27,6 @@ import retrofit2.http.POST
 
 
 //Tutorial: https://johncodeos.com/how-to-make-post-get-put-and-delete-requests-with-retrofit-using-kotlin/
-// authenticate: https://stackoverflow.com/questions/55666987/how-to-implement-oauth2-authorization-on-android
 private const val BASE_URL = "http://turing.domain.eonegroup.it:8001/sap/bc/"
 private const val USER = "eone"
 private const val PASSWORD = "thebest"
@@ -56,7 +55,6 @@ class BasicAuthInterceptor(username: String, password: String, jsonData: Mutable
         val body = request.body
         request = request.newBuilder().header("Authorization", credentials).post(
             (jsonObjectString).toRequestBody(
-//                "application/json".toMediaTypeOrNull()
                 body?.contentType()
             )
         )
