@@ -8,7 +8,7 @@ The third view retrieves the "materiale" and "quantita".
 
 Each view has a back button to navigate up by one on the stack.
 The third view has a "finish" button to conclude the operation.
-When the button is prompted, the user receives a confirmation dialog with 2 options: back, finish.
+When the button is triggered, the user receives a confirmation dialog with 2 options: back, finish.
 
 The REST API is handled by Retrofit, gson and okhttp3 libraries.
 The method is a POST call. We send a basic authorization with fixed username and password to access SAP.
