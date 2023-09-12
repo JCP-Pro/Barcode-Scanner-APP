@@ -33,7 +33,7 @@
     <!-- Fourth view -->
 <!--    <string name="riepilogo_title">Riepilogo</string>-->
 <!--    <string name="riepilogo_comm">Commessa</string>-->
-    <string name="riepilogo_mat">Materiale: %s</string>
+    <string name="riepilogo">Materiale: %s\nQ.ta: %s</string>
     <string name="riepilogo_quantita">Q.ta: %s</string>
 
 

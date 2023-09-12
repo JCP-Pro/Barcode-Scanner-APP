@@ -10,7 +10,10 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.palmare.R
+import com.example.palmare.ui.adapter.ListItemAdapter
 import com.example.palmare.viewmodel.ArticleViewModel
 import kotlin.properties.Delegates
 
@@ -38,6 +41,15 @@ class DialogConfirmation : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.list_recyclerview)
+
+        recyclerView.apply {
+            adapter = ListItemAdapter(requireContext(), viewModel.items)
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+        }
+
         val decline = view.findViewById<Button>(R.id.decline)
         decline.setOnClickListener {
             findNavController().navigateUp()
