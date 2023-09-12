@@ -31,10 +31,10 @@
     <string name="btn_decline">Indietro</string>
 
     <!-- Fourth view -->
-    <string name="riepilogo_title">Riepilogo</string>
-    <string name="riepilogo_comm">Commessa</string>
-    <string name="riepilogo_prodotto">Prodotto</string>
-    <string name="riepilogo_quantita">Q.ta</string>
+<!--    <string name="riepilogo_title">Riepilogo</string>-->
+<!--    <string name="riepilogo_comm">Commessa</string>-->
+    <string name="riepilogo_mat">Materiale: %s</string>
+    <string name="riepilogo_quantita">Q.ta: %s</string>
 
 
 

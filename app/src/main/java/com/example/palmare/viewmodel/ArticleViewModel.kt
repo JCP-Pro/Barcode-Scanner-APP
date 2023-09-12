@@ -42,7 +42,7 @@ class ArticleViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 loadProfile(items)
-                _status.value = "Success: ${loadProfile(items)}}"
+                _status.value = "Success"
                 Log.d("ViewModel", "Success status: ${status}")
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}"

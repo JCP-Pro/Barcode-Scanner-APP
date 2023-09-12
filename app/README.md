@@ -39,6 +39,9 @@ https://www.javacodemonk.com/retrofit-basic-authentication-in-android-a47245fb#:
 • Inject body to authentication:
 https://stackoverflow.com/questions/34791244/retrofit2-modifying-request-body-in-okhttp-interceptor
 
+• How to add socketTimeout:
+https://stackoverflow.com/questions/25953819/how-to-set-connection-timeout-with-okhttp
+
 • How to create a Json Object(found in article explaining how to make retrofit api calls):
 https://johncodeos.com/how-to-make-post-get-put-and-delete-requests-with-retrofit-using-kotlin/
 
