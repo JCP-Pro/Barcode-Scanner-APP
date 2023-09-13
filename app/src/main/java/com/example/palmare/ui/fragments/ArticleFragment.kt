@@ -53,6 +53,7 @@ class ArticleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "onViewCreated!")
         fun setAppTitle(id: Int) {
             when (id) {
                 1 -> {
@@ -93,7 +94,7 @@ class ArticleFragment : Fragment() {
                 context?.resources?.getString(
                     R.string.scan_session,
                     viewModel.scanQty,
-                    viewModel.scanQty
+                    viewModel.totalScans
                 )
 
             indietro.setOnClickListener {

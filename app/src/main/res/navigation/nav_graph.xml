@@ -46,7 +46,7 @@
             android:id="@+id/action_articleFragment_to_dialogConfirmation"
             app:destination="@id/dialogConfirmation" />
     </fragment>
-    <dialog
+    <fragment
         android:id="@+id/dialogConfirmation"
         android:name="com.example.palmare.ui.fragments.DialogConfirmation"
         android:label="DialogConfirmation" >
@@ -61,5 +61,5 @@
         <action
             android:id="@+id/action_dialogConfirmation_to_articleFragment"
             app:destination="@id/articleFragment" />
-    </dialog>
+    </fragment>
 </navigation>

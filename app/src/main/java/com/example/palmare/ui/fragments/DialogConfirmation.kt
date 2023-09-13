@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,8 +20,8 @@ import kotlin.properties.Delegates
 
 const val TAG = "DialogConfirmation"
 
-class DialogConfirmation : DialogFragment() {
-
+//class DialogConfirmation : DialogFragment() { remember to go to nav_graph.xml and change <fragment to <dialog
+class DialogConfirmation: Fragment() {
     private var typeId by Delegates.notNull<Int>()
     private val viewModel: ArticleViewModel by activityViewModels()
 
@@ -52,15 +53,12 @@ class DialogConfirmation : DialogFragment() {
 
         val decline = view.findViewById<Button>(R.id.decline)
         decline.setOnClickListener {
-            findNavController().navigateUp()
-            if (viewModel.items.size != viewModel.totalScans) {
-                Log.d(ArticleFragment.TAG, "this is the item size :${viewModel.items.size}")
-                Log.d(ArticleFragment.TAG, "this is the scan quantity: ${viewModel.scanQty}")
-                Log.d(ArticleFragment.TAG, "change")
-                viewModel.onResumeQty()
-            }
             //Filter list and remove
             viewModel.filterList()
+            if (viewModel.items.size != viewModel.totalScans) {
+                viewModel.onResumeQty()
+            }
+            findNavController().navigateUp()
         }
 
         val confirm = view.findViewById<Button>(R.id.confirm)
