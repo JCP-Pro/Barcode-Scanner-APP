@@ -53,13 +53,20 @@ class DialogConfirmation : DialogFragment() {
         val decline = view.findViewById<Button>(R.id.decline)
         decline.setOnClickListener {
             findNavController().navigateUp()
+            if (viewModel.items.size != viewModel.totalScans) {
+                Log.d(ArticleFragment.TAG, "this is the item size :${viewModel.items.size}")
+                Log.d(ArticleFragment.TAG, "this is the scan quantity: ${viewModel.scanQty}")
+                Log.d(ArticleFragment.TAG, "change")
+                viewModel.onResumeQty()
+            }
+            //Filter list and remove
+            viewModel.filterList()
         }
 
         val confirm = view.findViewById<Button>(R.id.confirm)
         confirm.setOnClickListener {
-            Log.d(TAG, "This is the list with the data to send: ${viewModel.items}")
+            viewModel.filterList()
             viewModel.sendAuth()
-            Log.d(TAG, "Status: ${viewModel.status.value}")
             if (viewModel.status.value != null) {
                 viewModel.operationComplete()
                 findNavController().navigate(R.id.action_dialogConfirmation_to_taskOperationFragment)

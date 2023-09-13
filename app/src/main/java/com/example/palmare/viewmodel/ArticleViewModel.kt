@@ -8,13 +8,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.palmare.model.ItemModel
 import com.example.palmare.network.loadProfile
 import kotlinx.coroutines.launch
+
 const val TAG = "ViewModel"
+
 class ArticleViewModel : ViewModel() {
     val items = mutableListOf<ItemModel>()
 
     var scanQty = 0
+
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
+    var totalScans = 0
+
 
     fun addToList(
         typeId: Int,
@@ -29,14 +34,33 @@ class ArticleViewModel : ViewModel() {
             quantity //quantità : qty
         )
         items.add(item)
-        scanQty = scanQty.inc()
+        scanQty = items.size
+        totalScans = totalScans.inc()
+    }
+
+    fun onResumeQty() {
+        scanQty = items.size
+    }
+
+    fun filterList() {
+        //Iterator solution: https://stackoverflow.com/questions/223918/iterating-through-a-collection-avoiding-concurrentmodificationexception-when-re
+        val iterator: MutableIterator<ItemModel> = items.iterator()
+        while (iterator.hasNext()) {
+            val currentItem = iterator.next()
+            if (currentItem.op == 0) {
+                // Remove the current element from the iterator and the list.
+                iterator.remove()
+            }
+        }
     }
 
 
     fun operationComplete() {
         items.clear()
         scanQty = 0
+        totalScans = 0
     }
+
 
     fun sendAuth() {
         viewModelScope.launch {

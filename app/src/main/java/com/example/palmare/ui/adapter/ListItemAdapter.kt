@@ -1,7 +1,7 @@
 package com.example.palmare.ui.adapter
 
 import android.content.Context
-import android.util.Log
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,15 +9,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.palmare.R
 import com.example.palmare.model.ItemModel
-import com.example.palmare.ui.fragments.DialogConfirmation
 
-// ListAdapter tutorial: https://developer.android.com/codelabs/basic-android-kotlin-training-intro-room-flow?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-5-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-intro-room-flow#7
 private const val TAGADAPTER = "ListItemAdapter"
-class ListItemAdapter(private val context: Context, private val items: MutableList<ItemModel>): RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>()  {
 
-    class ListItemViewHolder(val view: View): RecyclerView.ViewHolder(view) {
-        val summary = view.findViewById<TextView>(R.id.summary)
-//        val qty = view.findViewById<TextView>(R.id.qty_label)
+class ListItemAdapter(
+    private val context: Context,
+    private val items: MutableList<ItemModel>
+) : RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>() {
+
+    class ListItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val summary: TextView? = view.findViewById<TextView>(R.id.summary)
+        val divider: View? = view.findViewById<View>(R.id.divider)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
@@ -27,15 +29,59 @@ class ListItemAdapter(private val context: Context, private val items: MutableLi
 
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
         val item = items[position]
-        val resources = context.resources
-        holder.summary.text = resources?.getString(R.string.riepilogo, item.mat, item.qty)
 
-        holder.summary.setOnClickListener {
-            //FIXME: make the display of the list dynamic. (Try ListAdapter or observe changes on the mutablelive data from the DialogFragment)
-            Log.d(TAGADAPTER, "this is the item clicked: ${item}")
-            Log.d(TAGADAPTER, "Before remove ${items}")
-            items.remove(item)
-            Log.d(TAGADAPTER, "AFTER REMOVE: $items")
+        fun View?.removeSelf() {
+            this ?: return
+            val parent = parent as? ViewGroup ?: return
+            parent.removeView(this)
+        }
+
+        fun confirmDeletion() {
+            items[position] = ItemModel(0, "", "", "")
+            holder.summary.removeSelf()
+            holder.divider.removeSelf()
+        }
+
+        val resources = context.resources
+        holder.summary?.text = resources?.getString(R.string.riepilogo, item.mat, item.qty)
+
+        fun openDeleteDialog() {
+            //How to create a dialog:
+            // https://www.geeksforgeeks.org/how-to-create-an-alert-dialog-box-in-android/
+            // Create the object of AlertDialog Builder class
+            val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(context)
+
+            // Set Alert Title
+            builder.setTitle(R.string.remove_title)
+
+            // Set the message show for the Alert time
+            builder.setMessage(item.toString())
+
+            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+            builder.setCancelable(false)
+
+            builder.setPositiveButton(
+                R.string.remove_confirm_btn
+            ) { _, _ ->
+                confirmDeletion()
+            }
+
+            builder.setNegativeButton(
+                R.string.btn_indietro
+            ) { dialog: DialogInterface, _ ->
+                // If user click no then dialog box is canceled.
+                dialog.cancel()
+            }
+
+            // Create the Alert dialog
+            val alertDialog: android.app.AlertDialog? = builder.create()
+            // Show the Alert Dialog box
+            alertDialog?.show()
+        }
+
+
+        holder.summary?.setOnClickListener {
+            openDeleteDialog()
         }
     }
 

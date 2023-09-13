@@ -28,6 +28,7 @@ class ArticleFragment : Fragment() {
     private var typeId by Delegates.notNull<Int>()
     private lateinit var typeCommessa: String
     private val viewModel: ArticleViewModel by activityViewModels()
+
     companion object {
         const val COMMESSA = "commessa"
         const val TAG = "ArticleFragment"
@@ -84,14 +85,16 @@ class ArticleFragment : Fragment() {
             }
         }
         setAppTitle(typeId)
-        Log.d(TAG, "This is the argument for commessa: ${typeCommessa}")
-        Log.d(TAG, "This is the argument for Type operation: ${typeId}")
 
 
         binding.apply {
             //default
             sessionScan.text =
-                context?.resources?.getString(R.string.scan_session, viewModel.scanQty, viewModel.scanQty)
+                context?.resources?.getString(
+                    R.string.scan_session,
+                    viewModel.scanQty,
+                    viewModel.scanQty
+                )
 
             indietro.setOnClickListener {
                 findNavController().navigateUp()
@@ -107,12 +110,13 @@ class ArticleFragment : Fragment() {
 
             fun scanOperation() {
 
-                Log.d(TAG, "List BEFORE add: ${viewModel.items}")
-
                 if (quantityInput.text!!.length > 17) {
-                    Toast.makeText(activity, "Error. Invalid length. Max 13 Int digits.", Toast.LENGTH_SHORT).show()
-                }
-                else {
+                    Toast.makeText(
+                        activity,
+                        "Error. Invalid length. Max 13 Int digits.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
                     viewModel.addToList(
                         typeId,
                         typeCommessa,
@@ -122,10 +126,12 @@ class ArticleFragment : Fragment() {
                 }
 
 
-                Log.d(TAG, "Scan quantity AFTER inc(): ${viewModel.scanQty}")
                 sessionScan.text =
-                    context?.resources?.getString(R.string.scan_session, viewModel.scanQty, viewModel.scanQty)
-                Log.d(TAG, "List AFTER add: ${viewModel.items}")
+                    context?.resources?.getString(
+                        R.string.scan_session,
+                        viewModel.scanQty,
+                        viewModel.totalScans
+                    )
 
                 //clear the input fields
                 articoloInput.text?.clear()
