@@ -33,11 +33,11 @@ private const val BASE_URL = "http://turing.domain.eonegroup.it:8001/sap/bc/"
 private const val USER = "eone"
 private const val PASSWORD = "thebest"
 private const val TAG = "APISERVICE"
-private const val DATA = "zpalm_get_data"
+private const val ENDPOINT = "zpalm_get_data"
 
 interface PalmareApiService {
     //Define how to talk to the web server using HTTP requests.
-    @POST(DATA)
+    @POST(ENDPOINT)
     fun sendAuth(): Call<ResponseBody>
 }
 
@@ -89,7 +89,7 @@ class BasicAuthClient<T>(jsonData: MutableList<ItemModel>) {
     }
 }
 
-fun loadProfile(jsonData: MutableList<ItemModel>) {
+fun authAndSendData(jsonData: MutableList<ItemModel>) {
 
     val call = BasicAuthClient<PalmareApiService>(jsonData)
         .create(PalmareApiService::class.java).sendAuth()

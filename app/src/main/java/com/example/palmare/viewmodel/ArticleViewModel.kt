@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.palmare.model.ItemModel
-import com.example.palmare.network.loadProfile
+import com.example.palmare.network.authAndSendData
 import kotlinx.coroutines.launch
 
 const val TAG = "ViewModel"
@@ -65,7 +65,7 @@ class ArticleViewModel : ViewModel() {
     fun sendAuth() {
         viewModelScope.launch {
             try {
-                loadProfile(items)
+                authAndSendData(items)
                 _status.value = "Success"
                 Log.d("ViewModel", "Success status: ${status}")
             } catch (e: Exception) {
