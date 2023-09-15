@@ -126,7 +126,6 @@ class ArticleFragment : Fragment() {
                     )
                 }
 
-
                 sessionScan.text =
                     context?.resources?.getString(
                         R.string.scan_session,

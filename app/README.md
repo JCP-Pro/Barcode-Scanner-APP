@@ -9,7 +9,9 @@ The third view retrieves the "materiale" and "quantita".
 
 Each view has a back button to navigate up by one on the stack.
 The third view has a "finish" button to conclude the operation.
-When the button is triggered, the user receives a confirmation dialog with 2 options: back, finish.
+
+The 4th view has a summary list of the materials scanned with the possibility of removing an item of the list.
+There are also 2 buttons: "indietro" & "conferma"
 
 The REST API is handled by Retrofit, gson and okhttp3 libraries.
 The method is a POST call. We send a basic authorization with fixed username and password to access
@@ -44,7 +46,7 @@ https://www.javacodemonk.com/retrofit-basic-authentication-in-android-a47245fb#:
 • Inject body to authentication:
 https://stackoverflow.com/questions/34791244/retrofit2-modifying-request-body-in-okhttp-interceptor
 
-• How to add socketTimeout:
+• How to add connection timeout:
 https://stackoverflow.com/questions/25953819/how-to-set-connection-timeout-with-okhttp
 
 • How to create a Json Object(found in article explaining how to make retrofit api calls):

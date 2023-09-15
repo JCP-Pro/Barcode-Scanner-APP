@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/dialogConfirmation"
         android:name="com.example.palmare.ui.fragments.DialogConfirmation"
-        android:label="DialogConfirmation" >
+        android:label="@string/riepilogo_title">
         <action
             android:id="@+id/action_dialogConfirmation_to_taskOperationFragment"
             app:destination="@id/taskOperationFragment"

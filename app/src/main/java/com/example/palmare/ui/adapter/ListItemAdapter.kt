@@ -55,7 +55,7 @@ class ListItemAdapter(
             builder.setTitle(R.string.remove_title)
 
             // Set the message show for the Alert time
-            builder.setMessage(item.toString())
+            builder.setMessage("Materiale: ${item.mat}\nQ.ta: ${item.qty}")
 
             // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
             builder.setCancelable(false)

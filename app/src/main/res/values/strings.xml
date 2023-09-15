@@ -31,13 +31,13 @@
     <string name="btn_decline">Indietro</string>
 
     <!-- Fourth view -->
-    <!-- <string name="riepilogo_title">Riepilogo</string>-->
+     <string name="riepilogo_title">Riepilogo</string>
     <!-- <string name="riepilogo_comm">Commessa</string>-->
     <string name="riepilogo">Materiale: %s\nQ.ta: %s</string>
     <string name="riepilogo_quantita">Q.ta: %s</string>
 
     <!-- Remove dialog -->
-    <string name="remove_title">Elimina i seguenti elementi?</string>
+    <string name="remove_title">Elimina elemento?</string>
     <string name="remove_confirm_btn">Rimuovi</string>
 
 </resources>
